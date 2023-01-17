@@ -4,6 +4,8 @@ const clear_all : HTMLElement = document.getElementById("ac")!
 const clear : HTMLElement = document.getElementById("c")!
 const append : HTMLElement = document.getElementById("plus")!
 const minus : HTMLElement = document.getElementById("minus")!
+const divided : HTMLElement = document.getElementById("division")!
+const multiplied : HTMLElement = document.getElementById("multiplication")!
 const numbers : any = document.querySelectorAll(".button-number")!
 const equals : HTMLElement = document.getElementById("equals")!
 const dot : HTMLElement = document.getElementById("dot")!
@@ -21,6 +23,18 @@ minus.addEventListener("click", function() {
     }
 })
 
+divided.addEventListener("click", function() {
+    if(!isOperation() && !isMultiply()) {
+        updateDisplay("/")
+    }
+})
+
+multiplied.addEventListener("click", function() {
+    if(!isOperation() && !isMultiply()) {
+        updateDisplay("*")
+    }
+})
+
 clear_all.addEventListener("click", function() {
     display.textContent = ""
     result.textContent = "0"
@@ -28,7 +42,11 @@ clear_all.addEventListener("click", function() {
 
 clear.addEventListener("click", function() {
     display.textContent = display.textContent?.slice(0, -1)
-    result.textContent = eval(display.textContent)
+    if (display.textContent != "") {
+        result.textContent = eval(display.textContent)
+    } else {
+        result.textContent = 0
+    }
 })
 
 numbers.forEach((button) => {

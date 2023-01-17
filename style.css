@@ -65,7 +65,9 @@ main button:active {
 #display {
     width: 360px;
     display: flex;
-    height: 100px;
+    min-height: 100px;
+    height: fit-content;
+    margin-bottom: 10px;
     padding: 8px 20px;
     border-radius: 4px;
     word-wrap: break-word;
@@ -74,6 +76,7 @@ main button:active {
     box-shadow: inset #27343510 2px 4px 8px;
     flex-direction: column;
     align-items: flex-end;
+    overflow: hidden;
 }
 
 #display p {
@@ -85,6 +88,7 @@ main button:active {
 
 #result-display {
     font-size: 32px;
+    word-break: break-all;
 }
 
 #equals {
