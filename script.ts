@@ -1,9 +1,18 @@
-const hello : string = "mai god";
-const test : HTMLElement = document.getElementById("test")!
-let highfive : number = 1;
-console.log(hello);
+const display : HTMLElement = document.getElementById("display")!
+const append : HTMLElement = document.getElementById("plus")!
+const test : any = document.querySelectorAll(".button-number")!
+const equals : HTMLElement = document.getElementById("equals")!
 
-test.addEventListener("click", function() {
-    highfive += 1;
-    test.textContent = `Hey guys ${highfive}`;
+append.addEventListener("click", function() {
+    display.textContent += "+"
+})
+
+test.forEach((button) => {
+    button.addEventListener("click", function() {
+        display.textContent += button.textContent
+    })
+})
+
+equals.addEventListener("click", function() {
+    display.textContent = eval(display.textContent)
 })
