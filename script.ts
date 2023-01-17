@@ -45,7 +45,7 @@ clear.addEventListener("click", function() {
     if (display.textContent != "") {
         result.textContent = eval(display.textContent)
     } else {
-        result.textContent = 0
+        result.textContent = "0"
     }
 })
 
@@ -72,6 +72,8 @@ function isOperation() {
     if (display.textContent?.slice(-1) === "+") {
         return true
     } else if (display.textContent?.slice(-1) === "-") {
+        return true
+    } else if (display.textContent === "") {
         return true
     } else return false
 }
